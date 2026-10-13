@@ -96,37 +96,37 @@ A beginner-friendly AWS project where I built my own network from scratch (VPC, 
 ### 1. Create the VPC
 Created `MY-VPC` with CIDR block `10.0.0.0/16`.
 
-![VPC](screenshots/01-vpc.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(46).png)
 
 ### 2. Create the Public Subnet
 Created `Public-Subnet` (`10.0.0.0/20`) inside `MY-VPC`.
 
-![Subnet](screenshots/02-subnet.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(47).png)
 
 ### 3. Create and Attach an Internet Gateway
 Created `My-Internet-Gateway` and attached it to `MY-VPC` (state: **Attached**).
 
-![Internet Gateway](screenshots/03-internet-gateway.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(48).png)
 
 ### 4. Create the Route Table and Add an Internet Route
 Created `My-Route-Table` and added a route sending `0.0.0.0/0` to the Internet Gateway.
 
-![Route Table](screenshots/04-route-table.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(49).png)
 
 ### 5. Associate the Route Table with the Subnet
 Associated `My-Route-Table` with `Public-Subnet` so the subnet becomes truly public.
 
-![Subnet Association](screenshots/07-subnet-association.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(52).png)
 
 ### 6. Create the Security Group
 Created `MY-Security-Group` allowing HTTP (80) and SSH (22).
 
-![Security Group](screenshots/06-security-group.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(51).png)
 
 ### 7. Launch the EC2 Instance
 Launched `My-Webserver` (Ubuntu, `t3.micro`) in `Public-Subnet` with `MY-Security-Group` and a public IP. Status checks: **3/3 passed**.
 
-![EC2 Instance](screenshots/05-ec2-instance.png)
+![EC2 Instance](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(50).png)
 
 ### 8. Connect via SSH and Install Nginx
 Connected to the instance over SSH, then ran:
@@ -141,7 +141,7 @@ sudo systemctl status nginx
 
 Nginx is **active (running)** and **enabled** (starts automatically on reboot).
 
-![Nginx Status](screenshots/08-nginx-status.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(54).png)
 
 ### 9. Create the Web Page
 Replaced the default page with a custom `index.html`:
@@ -170,7 +170,7 @@ sudo nano /var/www/html/index.html
 
 Opened the instance's public IPv4 address in a browser (`http://<EC2-Public-IP>`) and the page loaded successfully.
 
-![Website Output](screenshots/09-website-output.png)
+![image alt](https://github.com/harshbatham10/AWS-Project-2-VPC/blob/088f48051ed8832448fbae4bb21727e503d8d22d/Screenshot%20(56).png)
 
 > **Note:** The public IP changes if the instance is stopped and started. Use an **Elastic IP** for a fixed address.
 
